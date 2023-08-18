@@ -5,12 +5,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const SERVER_SETTINGS = require('./classes/settings/SERVER.json');
 const app = express();
 
 // Require all needed routes
-const registrate = require('./routes/registrate');
-const login = require('./routes/login');
-const aboutMe = require('./routes/aboutme');
+const addPort = require('./routes/addport');
+const removePort = require('./routes/removeport');
 
 // Setup using modules
 app.use(logger('dev'));
@@ -20,8 +20,8 @@ app.use(cookieParser());
 app.use(cors());
 
 // Setup api route
-app.use('/api/registrate', registrate);
-app.use('/api/login', login);
+app.use('/api/addport', addPort);
+app.use('/api/removeport', removePort);
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -35,7 +35,7 @@ app.use(function(err, req, res, next) {
 });
 
 // Launching server
-const server = app.listen(2000, function () {
+const server = app.listen(SERVER_SETTINGS.SERVER_PORT, function () {
 
   const host = server.address().address;
   const port = server.address().port;

@@ -14,7 +14,7 @@ class Shadowsocks {
 
     Connect() {
         // Initializing socket
-        if (this.isConnected) throw new Error("Shadowsocks already connected");
+        if (this.isConnected) return;
         this.client = dgram.createSocket('udp4');
 
         this.client.bind(this.socketPort);
@@ -59,7 +59,6 @@ class Shadowsocks {
 
         // Updating config file
         file.UpdateVpnConfig(JSON.stringify(config));
-        console.log("Ok");
     }
 
     /**
@@ -116,6 +115,6 @@ class Shadowsocks {
     }
 }
 
-let shadow = new Shadowsocks();
-shadow.Connect();
-shadow.AddNewPort('2012', "passwrosf");
+let ShadowObject = new Shadowsocks();
+
+module.exports = {Shadowsocks, ShadowObject }

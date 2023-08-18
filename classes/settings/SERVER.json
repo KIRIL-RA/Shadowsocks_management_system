@@ -1,7 +1,7 @@
 {
-    "USER":"manager",
-    "PASSWORD":"jh0*f2avkj_saf56jk",
+    "MANAGER_TOKEN":"pf1g02n`dns-gpnOO07qw2",
     "TOKEN":"",
+    "MAIN_SERVER_LOGIN_ADDR":"",
     "MANAGER_PORT":"8001",
     "SERVER_PORT":"80",
     "SOCKET_PORT":"8002"
