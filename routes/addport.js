@@ -20,7 +20,7 @@ router.post('/', async function (req, res, next) {
     }
 
     try {
-        if(sessionToken == SERVER_SETTINGS.TOKEN){
+        if(sessionToken == SERVER_SETTINGS.MANAGER_PORT){
             ShadowObject.Connect();
             await ShadowObject.AddNewPort(port, password);
             res.status(200).json({message: 'ok'});

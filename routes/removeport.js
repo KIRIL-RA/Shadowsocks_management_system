@@ -12,13 +12,13 @@ router.post('/', async function (req, res, next) {
         res.status(324).send("Login data not recieved");
         return;
     }
-    
+
     if(port == undefined || port == null){
         res.status(400).json({message: "Not all data were recieved"});
     }
 
     try {
-        if(sessionToken == SERVER_SETTINGS.TOKEN){
+        if(sessionToken == SERVER_SETTINGS.MANAGER_TOKEN){
             ShadowObject.Connect();
             await ShadowObject.RemovePort(port);
             res.status(200).json({message: 'ok'});
